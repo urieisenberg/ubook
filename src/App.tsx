@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
+import {CodeEditor} from "./components/CodeEditor";
 
 function App() {
   return (
     <>
-   
+      <CodeEditor />
     </>
   );
 }
