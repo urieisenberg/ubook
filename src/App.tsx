@@ -9,6 +9,7 @@ function App() {
         initialValue="import React from 'react'"
         onChange={(value) => setInput(value)}
       />
+      <Preview code={input}  />
     </>
   );
 }
