@@ -1,15 +1,8 @@
-import React, { useState } from "react";
-import { CodeEditor } from "./components/CodeEditor";
+import React from "react";
 
 function App() {
-  const [input, setInput] = useState("");
   return (
     <>
-      <CodeEditor
-        initialValue="import React from 'react'"
-        onChange={(value) => setInput(value)}
-      />
-      <Preview code={input}  />
     </>
   );
 }
