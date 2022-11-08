@@ -1,10 +1,10 @@
 import React from "react";
-import {CodeEditor} from "./components/CodeEditor";
+import { CodeEditor } from "./components/CodeEditor";
 
 function App() {
   return (
     <>
-      <CodeEditor />
+      <CodeEditor initialValue="import React from 'react'" />
     </>
   );
 }
