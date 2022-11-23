@@ -3,7 +3,7 @@ import { CellTypes } from "../cell";
 
 export type Direction = "up" | "down";
 
-interface MoveCellAction {
+export interface MoveCellAction {
   type: ActionType.MOVE_CELL;
   payload: {
     id: string;
@@ -11,12 +11,12 @@ interface MoveCellAction {
   };
 }
 
-interface DeleteCellAction {
+export interface DeleteCellAction {
   type: ActionType.DELETE_CELL;
   payload: string;
 }
 
-interface InsertCellAfterAction {
+export interface InsertCellAfterAction {
   type: ActionType.INSERT_CELL_AFTER;
   payload: {
     id: string | null;
@@ -24,7 +24,7 @@ interface InsertCellAfterAction {
   };
 }
 
-interface UpdateCellAction {
+export interface UpdateCellAction {
   type: ActionType.UPDATE_CELL;
   payload: {
     id: string;
