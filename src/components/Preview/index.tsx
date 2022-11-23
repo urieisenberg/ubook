@@ -4,9 +4,10 @@ import { html } from "./html";
 
 interface PreviewProps {
   code: string;
+  err: string;
 }
 
-export const Preview: React.FC<PreviewProps> = (code) => {
+export const Preview: React.FC<PreviewProps> = (code, err) => {
   const iframe = useRef<any>();
 
   useEffect(() => {
@@ -19,12 +20,12 @@ export const Preview: React.FC<PreviewProps> = (code) => {
   return (
     <div className="preview-wrapper">
       <iframe
-        title="preview"
         ref={iframe}
         sandbox="allow-scripts"
         srcDoc={html}
+        title="preview"
       />
-      {/* {err && <div className="preview-error">{err}</div>} */}
+      {err && <div className="preview-error">{err}</div>}
     </div>
   );
 };

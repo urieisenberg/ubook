@@ -1,8 +1,9 @@
-import React from "react";
+import { CodeCell } from "./components/CodeCell";
 
 function App() {
   return (
     <>
+      <CodeCell />
     </>
   );
 }

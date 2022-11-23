@@ -13,8 +13,8 @@ interface CodeEditorProps {
 }
 
 export const CodeEditor: React.FC<CodeEditorProps> = ({
-  initialValue,
   onChange,
+  initialValue,
 }) => {
   const editorRef = useRef<any>();
 
@@ -27,12 +27,11 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
     monacoEditor.getModel()?.updateOptions({ tabSize: 2 });
 
     const highlighter = new Highlighter(
-      //@ts-ignore
+      // @ts-ignore
       window.monaco,
       codeShift,
       monacoEditor
     );
-
     highlighter.highLightOnDidChangeModelContent(
       () => {},
       () => {},
@@ -42,16 +41,21 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
   };
 
   const onFormatClick = () => {
+    // get current value from editor
     const unformatted = editorRef.current.getModel().getValue();
 
-    const formatted = prettier.format(unformatted, {
-      parser: "babel",
-      plugins: [parser],
-      useTabs: false,
-      semi: true,
-      singleQuote: true,
-    });
+    // format that value
+    const formatted = prettier
+      .format(unformatted, {
+        parser: "babel",
+        plugins: [parser],
+        useTabs: false,
+        semi: true,
+        singleQuote: true,
+      })
+      .replace(/\n$/, "");
 
+    // set the formatted value back in the editor
     editorRef.current.setValue(formatted);
   };
 
@@ -64,11 +68,11 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
         Format
       </button>
       <MonacoEditor
-        value={initialValue}
         editorDidMount={onEditorDidMount}
-        height="500px"
+        value={initialValue}
+        theme="dark"
         language="javascript"
-        theme="vs-dark"
+        height="100%"
         options={{
           wordWrap: "on",
           minimap: { enabled: false },
