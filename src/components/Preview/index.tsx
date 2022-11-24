@@ -7,7 +7,7 @@ interface PreviewProps {
   err: string;
 }
 
-export const Preview: React.FC<PreviewProps> = (code, err) => {
+export const Preview: React.FC<PreviewProps> = ({code, err}) => {
   const iframe = useRef<any>();
 
   useEffect(() => {
