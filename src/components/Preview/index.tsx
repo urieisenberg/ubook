@@ -20,10 +20,10 @@ export const Preview: React.FC<PreviewProps> = (code, err) => {
   return (
     <div className="preview-wrapper">
       <iframe
+        title="preview"
         ref={iframe}
         sandbox="allow-scripts"
         srcDoc={html}
-        title="preview"
       />
       {err && <div className="preview-error">{err}</div>}
     </div>

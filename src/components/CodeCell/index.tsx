@@ -16,7 +16,6 @@ export const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const [code, setCode] = useState("");
   const [err, setErr] = useState("");
 
-  
   useEffect(() => {
     const timer = setTimeout(async () => {
       const output = await bundle(cell.content);
