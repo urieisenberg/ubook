@@ -9,7 +9,7 @@ import {
   InsertCellAfterAction,
 } from "../actions";
 import { CellTypes } from "../cell";
-import { bundle } from "../../bundler";
+import bundle from "../../bundler";
 
 export const moveCell = (id: string, direction: Direction): MoveCellAction => {
   return {
