@@ -3,8 +3,7 @@ import { unpkgPathPlugin } from "./plugins/unpkgPathPlugin";
 import { fetchPlugin } from "./plugins/fetchPlugin";
 
 let service: esbuild.Service;
-
-export const bundle = async (rawCode: string) => {
+const bundle = async (rawCode: string) => {
   if (!service) {
     service = await esbuild.startService({
       worker: true,
@@ -22,7 +21,10 @@ export const bundle = async (rawCode: string) => {
         "process.env.NODE_ENV": '"production"',
         global: "window",
       },
+      jsxFactory: "_React.createElement",
+      jsxFragment: "_React.Fragment",
     });
+
     return {
       code: result.outputFiles[0].text,
       err: "",
@@ -34,3 +36,5 @@ export const bundle = async (rawCode: string) => {
     };
   }
 };
+
+export default bundle;
