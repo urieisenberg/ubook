@@ -2,4 +2,4 @@ node_modules/
 packages/*/node_modules/
 build
 dist
-lerna-debug.log
+lerna-debug.log*
